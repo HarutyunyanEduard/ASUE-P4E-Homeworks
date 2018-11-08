@@ -1,26 +1,22 @@
 import random
 
-variants = 0
-
 number = random.randint(1,100)
-print("Guess my number between 1 and 100")
+guess = 0
+variants = 0
+while guess != number and guess != "exit":
+    guess = input("Guess my number between 1 and 100\n")
 
-while True:
-    print("Ready,steady,go!")   
-    guess = input()
+    if guess == "exit":
+        break
+
     guess = int(guess)
-
-    variants = variants + 1
+    variants += 1
 
     if guess < number:
-        print("Too low")
-
+        print("Too low!")
     if guess > number:
-        print("Too high")
-
+        print("Too high!")
     if guess == number:
-        break
-    
-if guess == number:
-    variants = str(variants)
-    print("You win! Number of experiments="+variants)
+        variants = str(variants)
+        print("You win! Number of experiments=" + variants)
+
